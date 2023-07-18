@@ -11,5 +11,20 @@ Configs: {
 			Label: Vertical Screen Percentage
 			Tooltip: 0% is at the top, 100% is at the bottom
 		}
+
+		horizontalPixelOffset: {
+			Label: Horizontal Pixel Offset
+			Tooltip: Negative is right, Positive is left. Try setting to 0 if the UI isn't visible
+		}
+
+		verticalPixelOffset: {
+			Label: Vertical Pixel Offset
+			Tooltip: Negative is up, Positive is down. Try setting to 0 if the UI isn't visible
+		}
+
+		visible: {
+			Label: UI Visibility
+			Tooltip: Makes the UI visible or invisible
+		}
 	}
 }

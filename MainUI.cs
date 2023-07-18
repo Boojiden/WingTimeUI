@@ -120,7 +120,7 @@ namespace WingTimeUI
         {
             // This prevents drawing unless we are using an ExampleCustomResourceWeapon
             Player player = Main.LocalPlayer;
-            if (player.equippedWings == null  || player.velocity.Y == 0)
+            if (player.equippedWings == null  || player.velocity.Y == 0 || player.mount.Type != -1)
                 state = UIState.FadeOut;
             else
                 state = UIState.FadeIn; 
