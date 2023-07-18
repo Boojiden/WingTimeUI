@@ -1,0 +1,15 @@
+Configs: {
+	UIConfig: {
+		DisplayName: UI Config
+
+		horizontalPercentage: {
+			Label: Horizontal Screen Percentage
+			Tooltip: 0% is to the left, 100% is to the right
+		}
+
+		verticalPercentage: {
+			Label: Vertical Screen Percentage
+			Tooltip: 0% is at the top, 100% is at the bottom
+		}
+	}
+}

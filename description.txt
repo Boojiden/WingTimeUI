@@ -1,0 +1,5 @@
+Wing Time UI is exactly what it sounds like.
+Whenever you have wings equipped and are in the air, a bar shows up that
+tells you how much wing time you have left.
+
+If you have questions or comments, my discord is ratmanrealistic
