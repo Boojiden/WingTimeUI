@@ -110,11 +110,9 @@ namespace WingTimeUI
             Vector4 textLight = Color.White.ToVector4();
             textLight *= alpha;
             Vector4 textShadow = Color.Black.ToVector4();
-            textShadow *= alpha;
             barFrame.Color = new Color(barvec);
             icon.Color = new Color(iconVec);
             text.TextColor= new Color(textLight);
-            text.ShadowColor= new Color(textShadow);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
