@@ -25,9 +25,29 @@ namespace WingTimeUI
         [Increment(0.01f)]
         [DefaultValue(0.7f)]
         public float verticalPercentage;
+
+        [Label("Horizontal Pixel Offset")]
+        [Tooltip("Negative is right, Positive is left. Try setting to 0 if the UI isn't visible")]
+        [Range(-10000, 10000)]
+        [Increment(1)]
+        [DefaultValue(0)]
+        public int horizontalPixelOffset;
+
+        [Label("Vertical Pixel Offset")]
+        [Tooltip("Negative is up, Positive is down. Try setting to 0 if the UI isn't visible")]
+        [Range(-10000, 10000)]
+        [Increment(1)]
+        [DefaultValue(0)]
+        public int verticalPixelOffset;
+
+        [Label("UI Visibility")]
+        [Tooltip("Makes the UI visible or invisible.")]
+        [DefaultValue(true)]
+        public bool visible;
+
         public override void OnChanged()
         {
-            MainUI.ApplyConfigChanges(horizontalPercentage, verticalPercentage);
+            MainUI.ApplyConfigChanges(horizontalPercentage, verticalPercentage, (float)horizontalPixelOffset, (float)verticalPixelOffset, visible);
         }
     }
 }

@@ -35,6 +35,8 @@ namespace WingTimeUI
 
         private UIState state;
 
+        private static bool doDrawing;
+
         //private Player player = Main.LocalPlayer;
 
         private enum UIState
@@ -84,16 +86,18 @@ namespace WingTimeUI
             Append(area);
         }
 
-        public static void ApplyConfigChanges(float horz, float ver)
+        public static void ApplyConfigChanges(float horz, float ver, float horpix, float verpix, bool visible)
         {
             if(area == null)
             {
                 return;
             }
-            area.Left.Set((0f), horz);
-            area.Top.Set(0f, ver);
+            area.Left.Set(horpix, horz);
+            area.Top.Set(verpix, ver);
             area.Recalculate();
             area.RecalculateChildren();
+
+            doDrawing = visible;
         }
 
         public void ChangeUIResolutionPlacement(Vector2 res)
@@ -116,6 +120,7 @@ namespace WingTimeUI
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
+            if(!doDrawing) return;
             // This prevents drawing unless we are using an ExampleCustomResourceWeapon
             Player player = Main.LocalPlayer;
             if (player.equippedWings == null  || player.velocity.Y == 0)
@@ -192,6 +197,7 @@ namespace WingTimeUI
 
         public override void Update(GameTime gameTime)
         {
+            if(!doDrawing) { return; }
             Player player = Main.LocalPlayer;
             if (player.equippedWings == null || player.velocity.Y == 0)
                 return;
