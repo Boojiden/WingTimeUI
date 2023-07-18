@@ -47,8 +47,6 @@ namespace WingTimeUI
         }
         public override void OnInitialize()
         {
-            
-            
             barFrame = new UIImage(ModContent.Request<Texture2D>("WingTimeUI/WingTimeBar")); // Frame of our resource bar
             barFrame.Left.Set(-122f, 0f);
             barFrame.Top.Set(0, 0f);
@@ -123,7 +121,7 @@ namespace WingTimeUI
             if(!doDrawing) return;
             // This prevents drawing unless we are using an ExampleCustomResourceWeapon
             Player player = Main.LocalPlayer;
-            if (player.equippedWings == null  || player.velocity.Y == 0)
+            if (player.equippedWings == null  || player.velocity.Y == 0 || player.mount.Type != -1)
                 state = UIState.FadeOut;
             else
                 state = UIState.FadeIn; 
