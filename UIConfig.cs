@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.ModLoader.Config;
 
 namespace WingTimeUI
@@ -12,6 +8,7 @@ namespace WingTimeUI
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("Placement")]
         [Label("Horizontal Screen Percentage")]
         [Tooltip("0% is to the left, 100% is to the right")]
         [Range(0f, 1f)]
@@ -40,14 +37,32 @@ namespace WingTimeUI
         [DefaultValue(0)]
         public int verticalPixelOffset;
 
-        [Label("UI Visibility")]
-        [Tooltip("Makes the UI visible or invisible.")]
+        [Header("Visibility")]
+        [Label("UI Visibility Behavior")]
+        [Tooltip("Determines the UI visibility behavior\n" +
+            "AlwaysDraw: Always show the UI when applicable\n" +
+            "DrawDuringBoss: Only show UI during boss fights\n" +
+            "NeverDraw: Never show the UI")]
+        [DefaultValue(0)]
+        [Range(0, 2)]
+        public UIDrawRule visible;
+
+        [Label("Draw while Soaring Insignia is equipped")]
+        [Tooltip("In vanilla, the Soaring Insignia gives infinite whing flight, so it's pretty redundant to have this UI show up\n" +
+            "Don't use this if a mod you have changes the Insignia to not have infinite flight time")]
         [DefaultValue(true)]
-        public bool visible;
+        public bool DrawInsignia;
 
         public override void OnChanged()
         {
-            MainUI.ApplyConfigChanges(horizontalPercentage, verticalPercentage, (float)horizontalPixelOffset, (float)verticalPixelOffset, visible);
+            MainUI.ApplyConfigChanges(horizontalPercentage, verticalPercentage, (float)horizontalPixelOffset, (float)verticalPixelOffset, visible, DrawInsignia);
         }
+    }
+
+    public enum UIDrawRule
+    {
+        AlwaysDraw,
+        DrawDuringBoss,
+        NeverDraw,
     }
 }
