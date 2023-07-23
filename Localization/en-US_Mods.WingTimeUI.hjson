@@ -23,8 +23,40 @@ Configs: {
 		}
 
 		visible: {
-			Label: UI Visibility
-			Tooltip: Makes the UI visible or invisible
+			Label: UI Visibility Behavior
+			Tooltip:
+				'''
+				Determines the UI visibility behavior
+				AlwaysDraw: Always show the UI when applicable
+				DrawDuringBoss: Only show UI during boss fights
+				NeverDraw: Never show the UI
+				'''
 		}
+
+		drawInsignia: {
+			Label: Draw while Soaring Insignia is equipped
+			ToolTip:
+				'''
+				In vanilla, the Soaring Insignia gives infinite whing flight, so it's pretty redundant to have this UI show up
+				Don't use this if a mod you have changes the Insignia to not have infinite flight time
+				'''
+			Tooltip:
+				'''
+				In vanilla, the Soaring Insignia gives infinite whing flight, so it's pretty redundant to have this UI show up
+				Don't use this if a mod you have changes the Insignia to not have infinite flight time
+				'''
+		}
+
+		Headers: {
+			Placement: Placement
+			Visibility: Visibility
+		}
+	}
+
+	UIDrawRule: {
+		Tooltip: ""
+		AlwaysDraw.Label: Always Draw
+		DrawDuringBoss.Label: Draw During Boss
+		NeverDraw.Label: Never Draw
 	}
 }

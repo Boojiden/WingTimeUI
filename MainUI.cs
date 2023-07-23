@@ -1,19 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
-using Terraria.GameContent;
-using Terraria.GameContent.UI.ResourceSets;
 using Terraria.ModLoader;
 using Terraria.UI;
-using Terraria.Localization;
-using Terraria.DataStructures;
 
 namespace WingTimeUI
 {
@@ -27,14 +19,15 @@ namespace WingTimeUI
         private UIImage barFrame;
         private Asset<Texture2D> barFill;
         private UIImage icon;
-        private Color gradientA;
-        private Color gradientB;
 
         private float fadeInOutTime = 15;
         private float timer = 0;
 
         private UIState state;
 
+        private static UIDrawRule drawingRule;
+
+        private static bool drawWithInsignia;
         //private Player player = Main.LocalPlayer;
 
         private enum UIState
@@ -45,8 +38,6 @@ namespace WingTimeUI
         }
         public override void OnInitialize()
         {
-            
-            
             barFrame = new UIImage(ModContent.Request<Texture2D>("WingTimeUI/WingTimeBar")); // Frame of our resource bar
             barFrame.Left.Set(-122f, 0f);
             barFrame.Top.Set(0, 0f);
@@ -84,16 +75,19 @@ namespace WingTimeUI
             Append(area);
         }
 
-        public static void ApplyConfigChanges(float horz, float ver)
+        public static void ApplyConfigChanges(float horz, float ver, float horpix, float verpix, UIDrawRule drawRule, bool drawInsignia)
         {
             if(area == null)
             {
                 return;
             }
-            area.Left.Set((0f), horz);
-            area.Top.Set(0f, ver);
+            area.Left.Set(horpix, horz);
+            area.Top.Set(verpix, ver);
             area.Recalculate();
             area.RecalculateChildren();
+
+            drawingRule = drawRule;
+            drawWithInsignia = drawInsignia;
         }
 
         public void ChangeUIResolutionPlacement(Vector2 res)
@@ -110,16 +104,42 @@ namespace WingTimeUI
             Vector4 textLight = Color.White.ToVector4();
             textLight *= alpha;
             Vector4 textShadow = Color.Black.ToVector4();
-            textShadow *= alpha;
             barFrame.Color = new Color(barvec);
             icon.Color = new Color(iconVec);
             text.TextColor= new Color(textLight);
-            text.ShadowColor= new Color(textShadow);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
+            switch (drawingRule)
+            {
+                case UIDrawRule.DrawDuringBoss:
+                    if (!NPC.AnyDanger(true, false))
+                    {
+                        return;
+                    }
+                    break;
+                case UIDrawRule.NeverDraw:
+                    return;
+            }
+
             // This prevents drawing unless we are using an ExampleCustomResourceWeapon
             Player player = Main.LocalPlayer;
+            if (!drawWithInsignia)
+            {
+                bool hasInsignia = false;
+                for (int i = 3; i < player.armor.Length; i++)
+                {
+                    if (player.armor[i].netID == Terraria.ID.ItemID.EmpressFlightBooster)
+                    {
+                        hasInsignia = true;
+                    }
+                }
+                if (hasInsignia)
+                {
+                    return;
+                }
+            }
+
             if (player.equippedWings == null  || player.velocity.Y == 0 || player.mount.Type != -1)
                 state = UIState.FadeOut;
             else
@@ -157,7 +177,7 @@ namespace WingTimeUI
             float denom = player.wingTimeMax;
             denom += player.rocketBoots == 0 ? 0f : (float)(player.rocketTimeMax * 6);
             float quotient = player.wingTime / denom;
-            if(state == UIState.FadeOut || player.grappling[0]>-1)
+            if(state == UIState.FadeOut || player.grappling[0]>-1 || player.pulley)
             {
                 quotient = 1f;
             }
@@ -197,6 +217,36 @@ namespace WingTimeUI
             Player player = Main.LocalPlayer;
             if (player.equippedWings == null || player.velocity.Y == 0)
                 return;
+            switch (drawingRule)
+            {
+                case UIDrawRule.DrawDuringBoss:
+                    if (!NPC.AnyDanger(true, false))
+                    {
+                        return;
+                    }
+                    break;
+                case UIDrawRule.NeverDraw:
+                    return;
+            }
+
+            // This prevents drawing unless we are using an ExampleCustomResourceWeapon
+            
+            if (!drawWithInsignia)
+            {
+                bool hasInsignia = false;
+                for (int i = 3; i < player.armor.Length; i++)
+                {
+                    if (player.armor[i].netID == Terraria.ID.ItemID.EmpressFlightBooster)
+                    {
+                        hasInsignia = true;
+                    }
+                }
+                if (hasInsignia)
+                {
+                    return;
+                }
+            }
+            
 
             float secs = (float)player.wingTime / 60f;
             // Setting the text per tick to update and show our resource values.

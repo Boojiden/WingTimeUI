@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.ModLoader.Config;
 
 namespace WingTimeUI
@@ -12,6 +8,7 @@ namespace WingTimeUI
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
+        [Header("Placement")]
         [Range(0f, 1f)]
         [Increment(0.01f)]
         [DefaultValue(0.5f)]
@@ -32,12 +29,27 @@ namespace WingTimeUI
         [DefaultValue(0)]
         public int verticalPixelOffset;
 
+        [Header("Visibility")]
+        [DefaultValue(0)]
+        [Range(0, 2)]
+        public UIDrawRule visible;
+
+        [Label("Draw while Soaring Insignia is equipped")]
+        [Tooltip("In vanilla, the Soaring Insignia gives infinite whing flight, so it's pretty redundant to have this UI show up\n" +
+            "Don't use this if a mod you have changes the Insignia to not have infinite flight time")]
         [DefaultValue(true)]
-        public bool visible;
+        public bool drawInsignia;
 
         public override void OnChanged()
         {
-            MainUI.ApplyConfigChanges(horizontalPercentage, verticalPercentage);
+            MainUI.ApplyConfigChanges(horizontalPercentage, verticalPercentage, (float)horizontalPixelOffset, (float)verticalPixelOffset, visible, drawInsignia);
         }
+    }
+
+    public enum UIDrawRule
+    {
+        AlwaysDraw,
+        DrawDuringBoss,
+        NeverDraw,
     }
 }

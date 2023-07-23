@@ -21,10 +21,6 @@ C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTi
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\Mono.Cecil.Mdb.dll
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\Mono.Cecil.Pdb.dll
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\Mono.Cecil.Rocks.dll
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Backports.dll
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Core.dll
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Iced.dll
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.ILHelpers.dll
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.RuntimeDetour.dll
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Utils.dll
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MP3Sharp.dll
@@ -73,16 +69,7 @@ C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTi
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\Mono.Cecil.Mdb.pdb
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\Mono.Cecil.Pdb.pdb
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\Mono.Cecil.Rocks.pdb
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Backports.pdb
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Backports.xml
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Core.pdb
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Core.xml
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Iced.pdb
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Iced.xml
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.ILHelpers.pdb
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.RuntimeDetour.pdb
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.RuntimeDetour.xml
-C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Utils.pdb
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\MonoMod.Utils.xml
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\ReLogic.pdb
 C:\Users\Aiden\OneDrive\Documents\My Games\Terraria\tModLoader\ModSources\WingTimeUI\bin\Debug\net6.0\ReLogic.xml
